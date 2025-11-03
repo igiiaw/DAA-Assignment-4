@@ -15,7 +15,7 @@ public class DAGSPTest {
         adj[0].add(new Edge(0,2,4));
         adj[1].add(new Edge(1,2,2));
         adj[2].add(new Edge(2,3,1));
-        DAGShortestPaths.Result r = DAGShortestPaths.shortest(adj, new double[4], true, 0);
+        DAGShortestPaths.Result r = DAGShortestPaths.shortest(adj, new double[4], true, 0, null);
         assertEquals(0.0, r.dist[0]);
         assertEquals(1.0, r.dist[1]);
         assertEquals(3.0, r.dist[2]);
@@ -33,7 +33,7 @@ public class DAGSPTest {
         adj[1].add(new Edge(1,2,0));
         adj[0].add(new Edge(0,2,0));
         adj[2].add(new Edge(2,3,0));
-        DAGLongestPath.Result r = DAGLongestPath.longest(adj, nodeDur, false, 0);
+        DAGLongestPath.Result r = DAGLongestPath.longest(adj, nodeDur, false, 0, null);
         assertEquals(11.0, r.dist[3]);
         List<Integer> p = DAGLongestPath.reconstruct(r, 3);
         assertEquals(List.of(0,1,2,3), p);

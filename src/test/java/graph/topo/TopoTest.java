@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class TopoTest {
     @Test
     public void testKahnSimpleDAG() {
@@ -15,7 +14,7 @@ public class TopoTest {
         for (int i = 0; i < 3; i++) adj[i] = new java.util.ArrayList<>();
         adj[0].add(new graph.util.Edge(0,1,1));
         adj[1].add(new graph.util.Edge(1,2,1));
-        int[] order = TopologicalSorter.kahnOrder(adj);
+        int[] order = TopologicalSorter.kahnOrder(adj, null);
         assertNotNull(order);
         assertEquals(3, order.length);
         int pos0= -1, pos1=-1, pos2=-1;
@@ -34,7 +33,7 @@ public class TopoTest {
         adj[0].add(new graph.util.Edge(0,2,1));
         adj[1].add(new graph.util.Edge(1,2,1));
         adj[2].add(new graph.util.Edge(2,3,1));
-        int[] order = TopologicalSorter.kahnOrder(adj);
+        int[] order = TopologicalSorter.kahnOrder(adj, null);
         assertNotNull(order);
         int p0=-1,p1=-1,p2=-1,p3=-1;
         for (int i=0;i<order.length;i++){
@@ -49,7 +48,7 @@ public class TopoTest {
         for (int i = 0; i < 2; i++) adj[i] = new java.util.ArrayList<>();
         adj[0].add(new graph.util.Edge(0,1,1));
         adj[1].add(new graph.util.Edge(1,0,1));
-        int[] order = TopologicalSorter.kahnOrder(adj);
+        int[] order = TopologicalSorter.kahnOrder(adj, null);
         assertNull(order);
     }
 }
